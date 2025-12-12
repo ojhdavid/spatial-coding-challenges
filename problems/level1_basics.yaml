@@ -1,17 +1,22 @@
-﻿- id: L1_PANDAS_001
-  title: "cluster蹂?n_genes ?됯퇏 怨꾩궛"
+- id: L1_PANDAS_001
+  title: "cluster별 n_genes 평균 계산"
   description: |
-    metadata.csv瑜??쎄퀬 cluster蹂꾨줈 n_genes ?됯퇏??怨꾩궛?섏꽭??
+    metadata.csv 파일을 읽고,
+    cluster 컬럼 기준으로 각 cluster의 n_genes 평균을 계산하고
+    결과를 pandas DataFrame으로 출력해보세요.
   topic: "pandas"
   difficulty: 1
-  tags: ["pandas", "groupby"]
+  tags: ["pandas", "groupby", "qc", "basic"]
   est_time_min: 20
 
 - id: L1_SCANPY_001
-  title: "?뱀젙 ?대윭?ㅽ꽣 subset ??UMAP"
+  title: "특정 클러스터 subset 후 UMAP 다시 계산하기"
   description: |
-    adata?먯꽌 cluster == 6留?subset?섏뿬 UMAP???ㅼ떆 怨꾩궛?섏꽭??
+    adata에 cluster 정보가 obs['cluster']에 있다고 가정합니다.
+    cluster == 6 인 셀만 subset하여 새로운 adata_sub를 만들고,
+    이 subset에서 PCA, neighbors, UMAP을 다시 계산한 뒤,
+    UMAP 플롯을 그려보세요.
   topic: "scanpy"
   difficulty: 1
-  tags: ["scanpy", "subset", "umap"]
+  tags: ["scanpy", "subset", "umap", "basic"]
   est_time_min: 30
