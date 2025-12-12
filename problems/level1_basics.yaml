@@ -1,0 +1,17 @@
+﻿- id: L1_PANDAS_001
+  title: "cluster蹂?n_genes ?됯퇏 怨꾩궛"
+  description: |
+    metadata.csv瑜??쎄퀬 cluster蹂꾨줈 n_genes ?됯퇏??怨꾩궛?섏꽭??
+  topic: "pandas"
+  difficulty: 1
+  tags: ["pandas", "groupby"]
+  est_time_min: 20
+
+- id: L1_SCANPY_001
+  title: "?뱀젙 ?대윭?ㅽ꽣 subset ??UMAP"
+  description: |
+    adata?먯꽌 cluster == 6留?subset?섏뿬 UMAP???ㅼ떆 怨꾩궛?섏꽭??
+  topic: "scanpy"
+  difficulty: 1
+  tags: ["scanpy", "subset", "umap"]
+  est_time_min: 30
