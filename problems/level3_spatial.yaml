@@ -1,0 +1,52 @@
+- id: L3_SPATIAL_001
+  title: "Squidpy spatial_neighbors와 radius sensitivity"
+  description: |
+    Visium 또는 Xenium-derived adata에 대해:
+
+    1) squidpy의 sq.gr.spatial_neighbors를 사용해 기본 spatial graph를 만듭니다.
+    2) radius 값을 [50, 100, 150, 200] 네 가지로 바꿔가며
+       각각에 대해 spatial_neighbors를 다시 계산해봅니다.
+    3) radius에 따라 한 cell이 평균적으로 몇 개의 neighbor를 갖는지 계산하고,
+       radius vs 평균 neighbor 수의 line plot을 그려보세요.
+
+    이 과제를 통해 "적절한 공간 스케일"에 대한 감각을 익혀보세요.
+  topic: "squidpy"
+  difficulty: 3
+  tags: ["squidpy", "spatial", "neighbors", "radius"]
+  est_time_min: 40
+
+- id: L3_SPATIAL_002
+  title: "SEED meta-score 상위 10% niche 시각화"
+  description: |
+    SEED 관련 gene list가 있다고 가정합니다 (예: HIF1A, CYP24A1, POSTN 등).
+
+    1) adata에서 SEED gene들의 평균 expression을 사용해 meta-score를 계산하고
+       adata.obs['seed_score'] 컬럼에 저장하세요.
+    2) seed_score 상위 10% cell만 골라서
+       - UMAP 상에서 highlight
+       - spatial plot 상에서도 highlight
+
+    두 개의 figure를 만들어,
+    SEED-high niche가 어느 위치에 분포하는지 비교해보세요.
+  topic: "scanpy"
+  difficulty: 3
+  tags: ["meta_score", "umap", "spatial", "seed"]
+  est_time_min: 45
+
+- id: L3_SPATIAL_003
+  title: "POSTN-high fibroblast 주변의 B-cell density 분석"
+  description: |
+    adata.obs에 'cell_type' 정보가 있고,
+    fibroblast와 B-cell이 annotation 되어 있다고 가정합니다.
+    또한 POSTN expression 값이 존재합니다.
+
+    1) POSTN expression 상위 10%인 fibroblast를 POSTN-high fibroblast로 정의하세요.
+    2) spatial 좌표(예: adata.obsm['spatial'])를 사용하여,
+       각 POSTN-high fibroblast 주변 반경 r (예: 50 μm) 안에 존재하는 B-cell의 수를 센 뒤
+       'local_B_density'라는 컬럼으로 저장하세요.
+    3) 이를 히스토그램 또는 violin plot으로 시각화하여,
+       POSTN-high fibroblast 주변 B-cell 밀도 분포를 확인해보세요.
+  topic: "squidpy"
+  difficulty: 3
+  tags: ["spatial", "density", "fibroblast", "B cell", "POSTN"]
+  est_time_min: 60
