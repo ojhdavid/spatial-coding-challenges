@@ -1,0 +1,136 @@
+######################################
+# Python
+######################################
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+######################################
+# Virtual environments
+######################################
+
+# venv / virtualenv
+venv/
+.venv/
+env/
+ENV/
+
+# Conda
+.conda/
+conda-env/
+
+######################################
+# Python build / distribution
+######################################
+
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+######################################
+# Jupyter Notebook
+######################################
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Jupyter lab
+.jupyter/
+.jupyterlab/
+
+######################################
+# IDEs / Editors
+######################################
+
+# VS Code
+.vscode/
+
+# PyCharm / IntelliJ
+.idea/
+
+# Spyder
+.spyderproject
+.spyproject
+
+######################################
+# OS-specific
+######################################
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+######################################
+# Logs / temp files
+######################################
+
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+######################################
+# Environment / secrets
+######################################
+
+.env
+.env.*
+*.env
+
+######################################
+# Data (adjust if needed)
+######################################
+
+# Large raw data (keep sample data tracked)
+data/raw/
+data/large/
+*.h5
+*.h5ad
+*.loom
+*.zarr
+
+######################################
+# Model artifacts
+######################################
+
+*.pkl
+*.joblib
+*.pt
+*.ckpt
+*.onnx
+
+######################################
+# Coverage / testing
+######################################
+
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+
+######################################
+# Misc
+######################################
+
+# SQLite
+*.sqlite
+*.db

@@ -1,7 +1,8 @@
 - id: L1_PANDAS_001
+  category: "pandas"
   title: "cluster별 n_genes 평균 계산"
   description: |
-    metadata.csv 파일을 읽고,
+    data/sample/metadata.csv 파일을 읽고,
     cluster 컬럼 기준으로 각 cluster의 n_genes 평균을 계산하고
     결과를 pandas DataFrame으로 출력해보세요.
   topic: "pandas"
@@ -9,7 +10,87 @@
   tags: ["pandas", "groupby", "qc", "basic"]
   est_time_min: 20
 
+- id: L1_PANDAS_002
+  category: "pandas"
+  title: "cluster별 cell 개수 세기"
+  description: |
+    data/sample/metadata.csv를 읽고,
+    cluster별 cell 수(count)를 계산해 내림차순으로 정렬해 출력해보세요.
+  topic: "pandas"
+  difficulty: 1
+  tags: ["pandas", "value_counts"]
+  est_time_min: 15
+
+- id: L1_PANDAS_003
+  category: "pandas"
+  title: "QC 기준으로 필터링 후 요약"
+  description: |
+    data/sample/metadata.csv에서 pct_mt > 20 인 행을 제거한 뒤,
+    남은 데이터로 cluster별 n_genes 평균을 다시 계산해보세요.
+  topic: "pandas"
+  difficulty: 1
+  tags: ["pandas", "filter", "qc"]
+  est_time_min: 20
+
+- id: L1_BASIC_001
+  category: "basic_coding"
+  title: "리스트에서 조건 만족 원소만 추출"
+  description: |
+    정수 리스트가 있을 때, 짝수만 남기는 함수 even_only(nums)를 작성하세요.
+    예시: even_only([1,2,3,4]) -> [2,4]
+  topic: "python"
+  difficulty: 1
+  tags: ["python", "list", "function"]
+  est_time_min: 15
+
+- id: L1_BASIC_002
+  category: "basic_coding"
+  title: "dict로 빈도수 세기"
+  description: |
+    문자열 리스트가 있을 때, 각 문자열의 등장 횟수를 dict로 반환하는 함수
+    count_items(items)를 작성하세요.
+  topic: "python"
+  difficulty: 1
+  tags: ["python", "dict"]
+  est_time_min: 15
+
+- id: L1_BASIC_003
+  category: "basic_coding"
+  title: "CSV 파일 읽고 특정 컬럼만 출력"
+  description: |
+    data/sample/metadata.csv를 csv 모듈 또는 pandas로 읽고,
+    cell_id와 cluster 두 컬럼만 추려서 상위 5행을 출력해보세요.
+  topic: "python"
+  difficulty: 1
+  tags: ["python", "csv", "pandas"]
+  est_time_min: 15
+
+- id: L1_SINGLECELL_001
+  category: "single_cell"
+  title: "scanpy로 기본 전처리 흐름 실행"
+  description: |
+    AnnData(adata)가 있다고 가정하고,
+    normalize_total -> log1p -> pca -> neighbors -> umap을 실행한 뒤
+    UMAP을 그려보세요.
+  topic: "scanpy"
+  difficulty: 1
+  tags: ["scanpy", "preprocess", "umap"]
+  est_time_min: 30
+
+- id: L1_SINGLECELL_002
+  category: "single_cell"
+  title: "특정 유전자 발현으로 violin plot 그리기"
+  description: |
+    adata가 있다고 가정합니다.
+    임의의 유전자(예: 'HIF1A' 또는 존재하는 gene)를 선택해
+    cluster별 violin plot을 그려보세요.
+  topic: "scanpy"
+  difficulty: 1
+  tags: ["scanpy", "plot", "violin"]
+  est_time_min: 25
+
 - id: L1_SCANPY_001
+  category: "single_cell"
   title: "특정 클러스터 subset 후 UMAP 다시 계산하기"
   description: |
     adata에 cluster 정보가 obs['cluster']에 있다고 가정합니다.
@@ -20,3 +101,15 @@
   difficulty: 1
   tags: ["scanpy", "subset", "umap", "basic"]
   est_time_min: 30
+
+- id: L1_SPATIAL_001
+  category: "spatial"
+  title: "spatial 좌표 컬럼 존재 여부 체크"
+  description: |
+    adata가 있다고 가정합니다.
+    adata.obsm에 'spatial' 키가 존재하는지 확인하고,
+    존재한다면 shape를 출력하고, 없다면 사용자에게 안내 문구를 출력하세요.
+  topic: "python"
+  difficulty: 1
+  tags: ["spatial", "anndata"]
+  est_time_min: 15

@@ -1,54 +1,107 @@
-- id: L2_QC_001
-  title: "기초 QC 지표 계산 및 scatterplot"
+- id: L2_PANDAS_001
+  category: "pandas"
+  title: "SEED 후보 cluster의 QC 요약"
   description: |
-    adata에 대해 다음 QC 지표를 계산하세요:
-    - 각 cell의 n_genes
-    - n_counts
-    - mt-genes (미토콘드리아 유전자) 비율 (pct_mt)
-
-    그런 다음:
-    - n_counts vs n_genes scatterplot을 그리고
-    - pct_mt가 20%를 넘는 cell을 빨간색 점으로 표시해보세요.
-  topic: "scanpy"
-  difficulty: 2
-  tags: ["qc", "scanpy", "pandas", "plot"]
-  est_time_min: 30
-
-- id: L2_QC_002
-  title: "highly variable genes 기반 preprocessing 함수 만들기"
-  description: |
-    adata에 대해 다음 전처리 과정을 하나의 Python 함수로 구현해보세요.
-
-    1) min_genes와 min_cells 기준으로 filter_cells, filter_genes
-    2) normalize_total(target_sum=1e4)
-    3) log1p
-    4) highly_variable_genes (예: n_top_genes=3000)
-    5) 해당 HVG만 남기고
-    6) scale(max_value=10)
-    7) PCA, neighbors, UMAP 수행
-
-    함수 이름 예시:
-      def basic_preprocess(adata, min_genes=200, min_cells=3, n_top_genes=3000):
-          ...
-  topic: "scanpy"
-  difficulty: 2
-  tags: ["scanpy", "preprocessing", "function", "pipeline"]
-  est_time_min: 40
-
-- id: L2_QC_003
-  title: "클러스터별 QC 요약 테이블 만들기"
-  description: |
-    adata.obs에 'cluster'라는 컬럼이 있다고 가정합니다.
-
-    각 cluster에 대해:
-    - cell 수
-    - n_genes 평균, 표준편차
-    - n_counts 평균, 표준편차
-    - pct_mt 평균
-
-    을 계산하여 pandas DataFrame 하나로 정리하고,
-    cluster를 index로 갖는 요약 테이블을 만들어보세요.
+    data/sample/metadata.csv에서
+    cluster별 n_genes, n_counts의 평균과 표준편차를 계산하세요.
   topic: "pandas"
   difficulty: 2
-  tags: ["pandas", "groupby", "qc"]
+  tags: ["qc", "summary"]
+  est_time_min: 25
+
+- id: L2_PANDAS_002
+  category: "pandas"
+  title: "SEED-like cluster 비율 계산"
+  description: |
+    특정 cluster ID(예: 6)가 전체 cell에서 차지하는 비율을 계산하세요.
+  topic: "pandas"
+  difficulty: 2
+  tags: ["ratio"]
+  est_time_min: 20
+
+- id: L2_SINGLECELL_001
+  category: "single_cell"
+  title: "SEED 후보 cluster DE gene 확인"
+  description: |
+    adata에서 cluster 6과 나머지 cluster 간
+    rank_genes_groups를 수행하세요.
+  topic: "scanpy"
+  difficulty: 2
+  tags: ["deg"]
+  est_time_min: 40
+
+- id: L2_SINGLECELL_002
+  category: "single_cell"
+  title: "HIF1A 발현 기반 SEED score 계산"
+  description: |
+    adata에서 HIF1A 발현값을 이용해
+    cell-level score를 계산하고 violin plot을 그리세요.
+  topic: "scanpy"
+  difficulty: 2
+  tags: ["score", "hypoxia"]
+  est_time_min: 35
+
+- id: L2_SPATIAL_001
+  category: "spatial"
+  title: "Xenium spatial 좌표 기반 거리 계산"
+  description: |
+    adata.obsm['spatial'] 좌표를 이용해
+    cluster 6 cell 간 평균 거리를 계산하세요.
+  topic: "python"
+  difficulty: 2
+  tags: ["distance"]
   est_time_min: 30
+
+- id: L2_SPATIAL_002
+  category: "spatial"
+  title: "SEED 주변 stromal cell 비율 계산"
+  description: |
+    cluster 6 cell 주변 반경 50um 내에 있는
+    stromal cell 비율을 계산하세요.
+  topic: "squidpy"
+  difficulty: 2
+  tags: ["niche"]
+  est_time_min: 45
+
+- id: L2_BASIC_001
+  category: "basic_coding"
+  title: "함수로 SEED 여부 판정"
+  description: |
+    n_genes와 pct_mt를 입력받아
+    SEED 후보 여부(True/False)를 반환하는 함수를 작성하세요.
+  topic: "python"
+  difficulty: 2
+  tags: ["function"]
+  est_time_min: 20
+
+- id: L2_BASIC_002
+  category: "basic_coding"
+  title: "SEED cell ID 필터링"
+  description: |
+    cell metadata dict에서 SEED 조건을 만족하는
+    cell_id 리스트만 반환하세요.
+  topic: "python"
+  difficulty: 2
+  tags: ["filter"]
+  est_time_min: 20
+
+- id: L2_SINGLECELL_003
+  category: "single_cell"
+  title: "SEED cluster pseudobulk 생성"
+  description: |
+    cluster 6 cell을 모아 pseudobulk expression을 계산하세요.
+  topic: "scanpy"
+  difficulty: 2
+  tags: ["pseudobulk"]
+  est_time_min: 35
+
+- id: L2_SPATIAL_003
+  category: "spatial"
+  title: "SEED–fibroblast 인접성 시각화"
+  description: |
+    SEED cluster와 fibroblast 간 spatial adjacency를
+    scatter plot으로 시각화하세요.
+  topic: "squidpy"
+  difficulty: 2
+  tags: ["visualization"]
+  est_time_min: 40

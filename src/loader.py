@@ -13,3 +13,5 @@ def load_all_problems() -> List[Dict]:
                 data = yaml.safe_load(f) or []
                 problems.extend(data)
     return problems
+def load_problems():
+    return load_all_problems()
