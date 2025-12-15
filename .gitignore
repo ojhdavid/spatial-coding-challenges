@@ -134,3 +134,7 @@ htmlcov/
 # SQLite
 *.sqlite
 *.db
+
+# local progress & solutions
+progress.json
+solutions/
